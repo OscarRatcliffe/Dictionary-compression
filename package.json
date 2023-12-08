@@ -4,8 +4,12 @@
   "description": "",
   "main": "src/main.ts",
   "scripts": {
-    "test": "npm build && cd build && node main.js && cd .."
+    "test": "npm run build && cd build && node main.js && cd ..",
+    "build": "tsc"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.10.4"
+  }
 }
