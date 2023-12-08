@@ -1,11 +1,9 @@
-import { copyFileSync } from "fs";
-
 const fs = require('fs')
 
 let output: Array<number> = [];
 let index: Array<string> = [];
 
-fs.readFile('../data/testdata.txt', (err: any, data: any) => {
+fs.readFile('../data/data.txt', (err: any, data: any) => {
     data = data.toString().split(" ")
 
     for(let i = 0; i < data.length; i++) {
@@ -19,7 +17,14 @@ fs.readFile('../data/testdata.txt', (err: any, data: any) => {
         output.push(index.indexOf(data[i]))
 
     }
-    
-    console.log(output)
+
+    try {
+        fs.writeFileSync('../data/outdata.txt', output.toString());
+        
+      } catch (err) {
+
+        console.error(err);
+
+      }
 
 })
